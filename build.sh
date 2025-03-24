@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-if [ "$(uname -m)" == "x86_64" || "$(uname -m)" == "amd64" ]; then
+if [[ "$(uname -m)" == "x86_64" || "$(uname -m)" == "amd64" ]]; then
   ARCH="amd64"
   RPM_ARCH="x86_64"
 else
