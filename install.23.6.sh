@@ -106,6 +106,7 @@ echo "oracle" | passwd --stdin oracle
 # Add listener port and skip validations to conf file
 sed -i "s/LISTENER_PORT=/LISTENER_PORT=1521/g" /etc/sysconfig/oracle-free-23*.conf
 sed -i "s/SKIP_VALIDATIONS=false/SKIP_VALIDATIONS=true/g" /etc/sysconfig/oracle-free-23*.conf
+sed -i 's/^CHARSET=.*$/CHARSET=KO16MSWIN949/g' /etc/sysconfig/oracle-free-23*.conf
 
 # Disable netca to avoid "No IP address found" issue
 mv "${ORACLE_HOME}"/bin/netca "${ORACLE_HOME}"/bin/netca.bak
@@ -206,6 +207,7 @@ export PATH=\${PATH}:\${ORACLE_HOME}/bin:\${ORACLE_BASE}
 
 # Use UTF-8 by default
 export NLS_LANG=.AL32UTF8
+export NLS_LANG=.KO16MSWIN949
 " >> "${ORACLE_BASE}"/.bash_profile
 chown oracle:oinstall "${ORACLE_BASE}"/.bash_profile
 

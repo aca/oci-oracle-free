@@ -105,7 +105,7 @@ if [ "${SKIP_CHECKSUM}" == "false" ]; then
 
   echo "BUILDER: verifying checksum of rpm file - please wait..."
 
-  SHASUM_RET=$(sha256sum oracle*free*"${VERSION}"*.rpm)
+  SHASUM_RET=$(sha256sum oracle*free*.rpm)
 
   if [[ ( "${VERSION}" == "23.2"  &&                                                                        "${SHASUM_RET%% *}" != "63b6c0ec9464682cfd9814e7e2a5d533139e5c6aeb9d3e7997a5f976d6677ca6" ) ||
         ( "${VERSION}" == "23.3"  &&                                                                        "${SHASUM_RET%% *}" != "1319bcd7cb706cb727501cbd98abf3f3980a4fdabeb613a1abffc756925c7374" ) ||
